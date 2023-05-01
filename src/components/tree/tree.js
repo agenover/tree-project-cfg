@@ -1,5 +1,6 @@
 import React from "react";
 import Header from "../header/header";
+import Footer from "../footer/Footer";
 
 export default function Tree() {
 	return (
@@ -8,6 +9,7 @@ export default function Tree() {
 			<main>
 				<h2>Tree</h2>
 			</main>
+			<Footer></Footer>
 		</>
 	);
 }
