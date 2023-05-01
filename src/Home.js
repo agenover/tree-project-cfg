@@ -5,7 +5,7 @@ import Header from "./components/header/header";
 export default function Home() {
 	return (
 		<div>
-			<Logo></Logo>
+			<Header></Header>
 			<nav>
 				<Link to="/form">Create Person</Link>
 				<Link to="/tree">Tree</Link>
