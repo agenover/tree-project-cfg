@@ -1,9 +1,13 @@
 import React from "react";
+import Header from "../header/header";
 
 export default function CreatePersonForm() {
 	return (
-		<main style={{ padding: "1rem" }}>
-			<h2>Form</h2>
-		</main>
+		<>
+			<Header></Header>
+			<main>
+				<h2>Form</h2>
+			</main>
+		</>
 	);
 }

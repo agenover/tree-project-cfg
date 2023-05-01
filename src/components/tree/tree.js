@@ -1,7 +1,13 @@
+import React from "react";
+import Header from "../header/header";
+
 export default function Tree() {
 	return (
-		<main style={{ padding: "1rem 0" }}>
-			<h2>Tree</h2>
-		</main>
+		<>
+			<Header></Header>
+			<main>
+				<h2>Tree</h2>
+			</main>
+		</>
 	);
 }
