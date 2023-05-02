@@ -6,9 +6,9 @@ export default function Tree() {
 	return (
 		<>
 			<Header></Header>
-			<main>
+			<div>
 				<h2>Tree</h2>
-			</main>
+			</div>
 			<Footer></Footer>
 		</>
 	);

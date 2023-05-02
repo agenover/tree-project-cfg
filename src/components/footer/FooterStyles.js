@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const FooterBox = styled.div`
-	background: grey;
+	background: #9fc5c6;
 	position: relative;
 	width: 100%;
 `;

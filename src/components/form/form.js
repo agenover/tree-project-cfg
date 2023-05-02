@@ -6,7 +6,7 @@ export default function CreatePersonForm() {
 	return (
 		<>
 			<Header />
-			<main>
+			<div>
 				<h2>Form</h2>
 				<h2>Form</h2>
 				<h2>Form</h2>
@@ -20,7 +20,7 @@ export default function CreatePersonForm() {
 				<h2>Form</h2>
 				<h2>Form</h2>
 				<h2>Form</h2>
-			</main>
+			</div>
 			<Footer />
 		</>
 	);

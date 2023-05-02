@@ -11,5 +11,7 @@ export default function Header() {
 }
 
 const HeaderBox = styled.div`
-	background: grey;
+	background: #5f9ea0;
+	margin: 0 !important;
+	padding: 4em;
 `;
