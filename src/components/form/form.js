@@ -1,27 +1,12 @@
 import React from "react";
-import Header from "../header/header";
-import Footer from "../footer/Footer";
+import PageLayout from "../layout/PageLayout";
 
 export default function CreatePersonForm() {
 	return (
-		<>
-			<Header />
+		<PageLayout>
 			<div>
 				<h2>Form</h2>
-				<h2>Form</h2>
-				<h2>Form</h2>
-				<h2>Form</h2>
-				<h2>Form</h2>
-				<h2>Form</h2>
-				<h2>Form</h2>
-				<h2>Form</h2>
-				<h2>Form</h2>
-				<h2>Form</h2>
-				<h2>Form</h2>
-				<h2>Form</h2>
-				<h2>Form</h2>
 			</div>
-			<Footer />
-		</>
+		</PageLayout>
 	);
 }
