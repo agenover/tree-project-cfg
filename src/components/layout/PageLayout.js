@@ -5,7 +5,7 @@ import styled from "styled-components";
 const PageLayout = ({ children }) => {
 	return (
 		<PageContainer>
-			<Header></Header>
+			<Header />
 			<PageContentContainer>{children}</PageContentContainer>
 			<Footer />
 		</PageContainer>
