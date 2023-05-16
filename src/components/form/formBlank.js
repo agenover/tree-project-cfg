@@ -6,7 +6,7 @@ import { Formik, Form } from "formik";
 import { RadioGroup, GenderGroupItem, StateGroupItem } from "./formRadioGroups";
 import { CheckBoxItem } from "./formCheckbox";
 
-export default function BlankForm({ onSubmit = () => {} }) {
+export default function FormBlank({ onSubmit = () => {} }) {
 	return (
 		<PageLayout>
 			<div>
