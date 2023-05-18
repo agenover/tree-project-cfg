@@ -16,7 +16,8 @@ export default function Home() {
 }
 
 const Button = styled.button`
-	background: #dfebec;
+	background: #3c4152;
+	color: #ebe1ff;
 	border: none;
 	border-radius: 5px;
 	margin: 4rem;

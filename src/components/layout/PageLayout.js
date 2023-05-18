@@ -16,6 +16,7 @@ const PageContainer = styled.div`
 	min-height: 100vh;
 	display: flex;
 	flex-direction: column;
+	background: #ebe1ff;
 `;
 
 const PageContentContainer = styled.div`

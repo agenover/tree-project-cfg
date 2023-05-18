@@ -10,7 +10,7 @@ const Footer = () => {
 };
 
 const FooterContainer = styled.div`
-	background: #9fc5c6;
+	background: Black;
 	position: relative;
 	justify-content: center;
 	padding: 2rem;
@@ -21,6 +21,7 @@ const FooterContainer = styled.div`
 const FooterInfo = styled.div`
 	display: flex;
 	justify-content: center;
+	color: #ebe1ff;
 `;
 
 export default Footer;
