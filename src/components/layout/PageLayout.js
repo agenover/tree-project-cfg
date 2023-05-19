@@ -23,6 +23,8 @@ const PageContentContainer = styled.div`
 	flex-grow: 1;
 	display: flex;
 	justify-content: center;
+	align-content: center;
+	flex-wrap: wrap;
 `;
 
 export default PageLayout;
