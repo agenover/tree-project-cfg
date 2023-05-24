@@ -1,15 +1,17 @@
 import React from "react";
 import { Field } from "formik";
+import styled from "styled-components";
 
 // CHECKBOX
 export const CheckBoxItem = ({ id, label }) => {
 	return (
-		<div className="container-fluid">
-			<label htmlFor={id} className="p-2">
-				{" "}
-				{label}{" "}
-			</label>
+		<Container>
+			<label htmlFor={id}> {label} </label>
 			<Field id={id} type="checkbox" name={id} />
-		</div>
+		</Container>
 	);
 };
+
+const Container = styled.div`
+	margin: 1rem;
+`;

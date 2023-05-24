@@ -1,26 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
 import * as Yup from "yup";
 import PageLayout from "../layout/PageLayout";
 import { TextFieldGroup } from "./formTextFields";
 import { Formik, Form } from "formik";
 import { RadioGroup, GenderGroupItem, StateGroupItem } from "./formRadioGroups";
-import { CheckBoxItem } from "./formCheckbox";
 
-export default function FormBlank({ onSubmit = () => {} }) {
+export default function FormBlank() {
+	const [firstName, setFirstName] = useState("");
+	const [lastName, setLastName] = useState("");
+	const [yearOfBirth, setYearOfBirth] = useState("");
+	const [gender, setGender] = useState("");
+	const [livingStatus, setLivingStatus] = useState("");
+	const [description, setDescription] = useState("");
+
+	const handleFormSubmit = (values) => {
+		// Update the state with the form values
+		setFirstName(values.firstName);
+		setLastName(values.lastName);
+		setYearOfBirth(values.yearOfBirth);
+		setGender(values.gender);
+		setLivingStatus(values.livingStatus);
+		setDescription(values.description);
+
+		// Object to store the form values
+		const formData = {
+			firstName: values.firstName,
+			lastName: values.lastName,
+			yearOfBirth: values.yearOfBirth,
+			gender: values.gender,
+			livingStatus: values.livingStatus,
+			description: values.description,
+		};
+
+		// Store the form
+		localStorage.setItem("formData", JSON.stringify(formData));
+	};
+
 	return (
 		<PageLayout>
 			<div>
-				<h2>Create a new person</h2>
+				<h2>Create a new person in your tree</h2>
 				<Formik
 					initialValues={initialValues}
 					validationSchema={validationSchema}
 					onSubmit={(values, { resetForm }) => {
-						onSubmit(values);
+						handleFormSubmit(values);
 						resetForm({ values: "" });
 					}}
 				>
 					{(formik) => (
-						<Form onSubmit={formik.handleSubmit} className="container">
+						<Form>
 							<TextFieldGroup
 								id="firstName"
 								label="First Name"
@@ -57,8 +86,8 @@ export default function FormBlank({ onSubmit = () => {} }) {
 								<StateGroupItem groupName="state" value="living" label="Living" />
 								<StateGroupItem groupName="state" value="deceased" label="Deceased" />
 							</RadioGroup>
-							<CheckBoxItem id="isPrivate" label="Should profile be private?" />
-							<CheckBoxItem id="isPreferred" label="Is this the preferred profile?" />
+							<TextFieldGroup id="parentOf" label="Parent of" />
+
 							<TextFieldGroup
 								id="description"
 								label="Add a description (optional)"
@@ -78,11 +107,10 @@ export default function FormBlank({ onSubmit = () => {} }) {
 const initialValues = {
 	firstName: "",
 	lastName: "",
-	dateOfBirth: "",
+	yearOfBirth: "",
 	gender: "",
 	livingStatus: "",
-	isPrivate: false,
-	isPreferred: false,
+	parentOf: "",
 	description: "",
 };
 

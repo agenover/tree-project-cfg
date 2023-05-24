@@ -1,18 +1,19 @@
 import React from "react";
 import { Field } from "formik";
+import styled from "styled-components";
 
 // RADIO GROUPS
 export const RadioGroup = ({ title, name, children, error }) => {
 	const id = `${name}-radio-group`;
 	return (
 		<>
-			<div className="container-fluid m-2">
+			<Container>
 				<div id={id}>{title}</div>
 				<div aria-labelledby={id} role="group">
 					{children}
 				</div>
 				<div>{error}</div>
-			</div>
+			</Container>
 		</>
 	);
 };
@@ -20,8 +21,8 @@ export const RadioGroup = ({ title, name, children, error }) => {
 // ITEMS INSIDE RADIO GROUPS
 export const GenderGroupItem = ({ groupName, value, label }) => {
 	return (
-		<label className="p-2">
-			<Field type="radio" name={groupName} value={value} className="m-1" />
+		<label>
+			<Field type="radio" name={groupName} value={value} />
 			{label}
 		</label>
 	);
@@ -30,8 +31,12 @@ export const GenderGroupItem = ({ groupName, value, label }) => {
 export const StateGroupItem = ({ groupName, value, label }) => {
 	return (
 		<label className="p-2">
-			<Field type="radio" name={groupName} value={value} className="p-2" />
+			<Field type="radio" name={groupName} value={value} />
 			{label}
 		</label>
 	);
 };
+
+const Container = styled.div`
+	margin: 1rem;
+`;

@@ -7,15 +7,11 @@ import Tree from "./components/tree/tree";
 const container = document.getElementById("root");
 const root = createRoot(container);
 
-const onSubmit = (values) => {
-	console.log(values);
-};
-
 root.render(
 	<BrowserRouter>
 		<Routes>
 			<Route path="/" element={<Home />} />
-			<Route path="form" element={<Form onSubmit={onSubmit} />} />
+			<Route path="form" element={<Form />} />
 			<Route path="/tree" element={<Tree />} />
 		</Routes>
 	</BrowserRouter>
