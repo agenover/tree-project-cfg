@@ -60,7 +60,11 @@ export default function FormBlank() {
 								label="Last Name"
 								error={formik.errors.lastName}
 							/>
-							<TextFieldGroup id="age" label="Age" error={formik.errors.age} />
+							<TextFieldGroup
+								id="yearOfBirth"
+								label="Year of Birth"
+								error={formik.errors.yearOfBirth}
+							/>
 							<RadioGroup name="gender" title={"Gender"} error={formik.errors.gender}>
 								<GenderGroupItem
 									groupName="gender"
@@ -123,11 +127,10 @@ const validationSchema = Yup.object({
 		.required("Last Name is required")
 		.min(4, "Last Name must be longer than 4 characters")
 		.max(30, "Last Name must be shorter than 30 characters"),
-	age: Yup.number()
-		.required("Age is required")
+	yearOfBirth: Yup.number()
+		.required("Year of Birth is required")
 		.positive()
-		.min(1, "Minimum age 1")
-		.max(110, "Maximum age 110"),
-	state: Yup.string().required("State is required"),
+		.min(1, "Minimum year 1"),
+	state: Yup.string().required("Living Status is required"),
 	gender: Yup.string().required("gender is required"),
 });
