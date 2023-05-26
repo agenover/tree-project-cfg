@@ -1,39 +1,14 @@
 import React, { useState } from "react";
 import * as Yup from "yup";
 import PageLayout from "../layout/PageLayout";
-import { TextFieldGroup } from "./formTextFields";
+import { TextFieldGroup, parentOfField, IdField } from "./formTextFields";
 import { Formik, Form } from "formik";
 import { RadioGroup, GenderGroupItem, StateGroupItem } from "./formRadioGroups";
+import { v4 as uuidv4 } from "uuid";
 
 export default function FormBlank() {
-	const [firstName, setFirstName] = useState("");
-	const [lastName, setLastName] = useState("");
-	const [yearOfBirth, setYearOfBirth] = useState("");
-	const [gender, setGender] = useState("");
-	const [livingStatus, setLivingStatus] = useState("");
-	const [description, setDescription] = useState("");
-
 	const handleFormSubmit = (values) => {
-		// Update the state with the form values
-		setFirstName(values.firstName);
-		setLastName(values.lastName);
-		setYearOfBirth(values.yearOfBirth);
-		setGender(values.gender);
-		setLivingStatus(values.livingStatus);
-		setDescription(values.description);
-
-		// Object to store the form values
-		const formData = {
-			firstName: values.firstName,
-			lastName: values.lastName,
-			yearOfBirth: values.yearOfBirth,
-			gender: values.gender,
-			livingStatus: values.livingStatus,
-			description: values.description,
-		};
-
-		// Store the form
-		localStorage.setItem("formData", JSON.stringify(formData));
+		addPerson(values);
 	};
 
 	return (
@@ -90,7 +65,8 @@ export default function FormBlank() {
 								<StateGroupItem groupName="state" value="living" label="Living" />
 								<StateGroupItem groupName="state" value="deceased" label="Deceased" />
 							</RadioGroup>
-							<TextFieldGroup id="parentOf" label="Parent of" />
+							<parentOfField id="parentOf" label="Parent of" />
+							{/* Select from a list of existing people */}
 
 							<TextFieldGroup
 								id="description"
@@ -107,8 +83,10 @@ export default function FormBlank() {
 		</PageLayout>
 	);
 }
+const idGenerator = uuidv4();
 
 const initialValues = {
+	id: "idGenerator",
 	firstName: "",
 	lastName: "",
 	yearOfBirth: "",
@@ -134,3 +112,10 @@ const validationSchema = Yup.object({
 	state: Yup.string().required("Living Status is required"),
 	gender: Yup.string().required("gender is required"),
 });
+
+const addPerson = (person) => {
+	const rawData = localStorage.getItem("site-data");
+	const currentData = rawData ? JSON.parse(rawData) : [];
+	currentData.push(person);
+	localStorage.setItem("site-data", JSON.stringify(currentData));
+};
