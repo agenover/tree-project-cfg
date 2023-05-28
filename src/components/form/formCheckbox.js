@@ -1,17 +1,13 @@
 import React from "react";
 import { Field } from "formik";
-import styled from "styled-components";
+import { FieldContainer } from "./formTextFields";
 
 // CHECKBOX
 export const CheckBoxItem = ({ id, label }) => {
 	return (
-		<Container>
+		<FieldContainer>
 			<label htmlFor={id}> {label} </label>
 			<Field id={id} type="checkbox" name={id} />
-		</Container>
+		</FieldContainer>
 	);
 };
-
-const Container = styled.div`
-	margin: 1rem;
-`;

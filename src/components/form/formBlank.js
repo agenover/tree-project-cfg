@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import * as Yup from "yup";
 import PageLayout from "../layout/PageLayout";
 import { TextFieldGroup } from "./formTextFields";
@@ -72,7 +71,7 @@ export default function FormBlank() {
 								label="Add a description (optional)"
 								error={formik.errors.description}
 							/>
-							<div className="container-fluid m-2">
+							<div>
 								<button type="submit">Save</button>
 							</div>
 						</Form>

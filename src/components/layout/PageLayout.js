@@ -25,6 +25,7 @@ const PageContentContainer = styled.div`
 	justify-content: center;
 	align-content: center;
 	flex-wrap: wrap;
+	margin: 2rem;
 `;
 
 export default PageLayout;
