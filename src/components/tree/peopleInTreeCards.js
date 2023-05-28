@@ -11,9 +11,13 @@ export default function PeopleInTreeCards() {
 	}, []);
 
 	const handleDelete = (person) => {
-		const updatedPeople = people.filter((p) => p.uniqueId !== person.uniqueId);
-		// localStorage.setItem("site-data", JSON.stringify(updatedPeople));
-		setPeople(updatedPeople);
+		setPeople((prevPeople) => {
+			const updatedPeople = prevPeople.filter(
+				(p) => p.uniqueId !== person.uniqueId
+			);
+			localStorage.setItem("site-data", JSON.stringify(updatedPeople));
+			return updatedPeople;
+		});
 	};
 
 	return (
