@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import * as Yup from "yup";
 import PageLayout from "../layout/PageLayout";
-import { TextFieldGroup, parentOfField, IdField } from "./formTextFields";
+import { TextFieldGroup } from "./formTextFields";
 import { Formik, Form } from "formik";
 import { RadioGroup, GenderGroupItem, StateGroupItem } from "./formRadioGroups";
 import { v4 as uuidv4 } from "uuid";
@@ -65,8 +65,7 @@ export default function FormBlank() {
 								<StateGroupItem groupName="state" value="living" label="Living" />
 								<StateGroupItem groupName="state" value="deceased" label="Deceased" />
 							</RadioGroup>
-							<parentOfField id="parentOf" label="Parent of" />
-							{/* Select from a list of existing people */}
+							<TextFieldGroup id="parentOf" label="Parent of" />
 
 							<TextFieldGroup
 								id="description"
@@ -83,10 +82,8 @@ export default function FormBlank() {
 		</PageLayout>
 	);
 }
-const idGenerator = uuidv4();
 
 const initialValues = {
-	id: "idGenerator",
 	firstName: "",
 	lastName: "",
 	yearOfBirth: "",
@@ -116,6 +113,8 @@ const validationSchema = Yup.object({
 const addPerson = (person) => {
 	const rawData = localStorage.getItem("site-data");
 	const currentData = rawData ? JSON.parse(rawData) : [];
+	const uniqueId = uuidv4();
+	person.uniqueId = uniqueId;
 	currentData.push(person);
 	localStorage.setItem("site-data", JSON.stringify(currentData));
 };
