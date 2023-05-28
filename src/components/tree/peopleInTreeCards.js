@@ -40,9 +40,7 @@ export default function PeopleInTreeCards() {
 
 const PersonCardContainer = styled.div`
 	display: flex;
-	flex-direction: row;
-	flex-wrap: wrap;
-	justify-content: flex-start;
+	flex-flow: row wrap;
 `;
 
 const PersonCard = styled.div`
@@ -51,7 +49,7 @@ const PersonCard = styled.div`
 	border: 1px solid;
 	border-radius: 5px;
 	background: #dbcafc;
-	width: 25%;
+	width: 12rem;
 `;
 
 const DeleteButton = styled.button`
