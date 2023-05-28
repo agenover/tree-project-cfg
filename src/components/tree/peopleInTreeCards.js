@@ -11,8 +11,8 @@ export default function PeopleInTreeCards() {
 	}, []);
 
 	const handleDelete = (person) => {
-		const updatedPeople = people.filter((p) => p.firstName !== person.firstName);
-		localStorage.setItem("site-data", JSON.stringify(updatedPeople));
+		const updatedPeople = people.filter((p) => p.uniqueId !== person.uniqueId);
+		// localStorage.setItem("site-data", JSON.stringify(updatedPeople));
 		setPeople(updatedPeople);
 	};
 
@@ -38,7 +38,7 @@ const PersonCardContainer = styled.div`
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: flex-start;
 `;
 
 const PersonCard = styled.div`
@@ -47,7 +47,7 @@ const PersonCard = styled.div`
 	border: 1px solid;
 	border-radius: 5px;
 	background: #dbcafc;
-	flex-basis: 25%;
+	width: 25%;
 `;
 
 const DeleteButton = styled.button`
