@@ -8,7 +8,7 @@ export default function Logo() {
 				<img
 					src={require("../../media/logoBOTpurple.png")}
 					alt="logo"
-					width="10%"
+					width="150rem"
 				/>
 			</Link>
 		</>
