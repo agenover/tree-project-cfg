@@ -24,14 +24,35 @@ export default function PeopleInTreeCards() {
 	return (
 		<PersonCardContainer>
 			{people.map((person) => (
-				<PersonCard key={person.firstName}>
-					<p>First Name: {person.firstName}</p>
-					<p>Last Name: {person.lastName}</p>
-					<p>Year of Birth: {person.yearOfBirth}</p>
-					<p>Gender: {person.gender}</p>
-					<p>Living Status: {person.livingStatus}</p>
-					<p>Parent of: {person.parentOf}</p>
-					<p>Description: {person.description}</p>
+				<PersonCard key={person.uniqueId}>
+					<p>
+						<b>First Name: </b>
+						{person.firstName}
+					</p>
+					<p>
+						<b>Last Name: </b>
+						{person.lastName}
+					</p>
+					<p>
+						<b>Year of Birth: </b>
+						{person.yearOfBirth}
+					</p>
+					<p>
+						<b>Gender: </b>
+						{person.gender}
+					</p>
+					<p>
+						<b>Living Status: </b>
+						{person.livingStatus}
+					</p>
+					<p>
+						<b>Parent of: </b>
+						{person.parentOf}
+					</p>
+					<p>
+						<b>Description: </b>
+						{person.description}
+					</p>
 					<DeleteButton onClick={() => handleDelete(person)}>Delete</DeleteButton>
 				</PersonCard>
 			))}
