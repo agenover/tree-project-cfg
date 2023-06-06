@@ -60,10 +60,18 @@ export default function FormBlank() {
 							<RadioGroup
 								name="livingStatus"
 								title={"Living Status"}
-								error={formik.errors.state}
+								error={formik.errors.livingStatus}
 							>
-								<StateGroupItem groupName="state" value="living" label="Living" />
-								<StateGroupItem groupName="state" value="deceased" label="Deceased" />
+								<StateGroupItem
+									groupName="livingStatus"
+									value="living"
+									label="Living"
+								/>
+								<StateGroupItem
+									groupName="livingStatus"
+									value="deceased"
+									label="Deceased"
+								/>
 							</RadioGroup>
 							<TextFieldGroup id="parentOf" label="Parent of" />
 
@@ -106,7 +114,7 @@ const validationSchema = Yup.object({
 		.required("Year of Birth is required")
 		.positive()
 		.min(1, "Minimum year 1"),
-	state: Yup.string().required("Living Status is required"),
+	livingStatus: Yup.string().required("Living Status is required"),
 	gender: Yup.string().required("gender is required"),
 });
 
