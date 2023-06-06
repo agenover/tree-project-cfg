@@ -15,6 +15,7 @@ export default function PeopleInTreeCards() {
 			const updatedPeople = prevPeople.filter(
 				(p) => p.uniqueId !== person.uniqueId
 			);
+			localStorage.removeItem(JSON.stringify(updatedPeople));
 			localStorage.setItem("site-data", JSON.stringify(updatedPeople));
 			return updatedPeople;
 		});
