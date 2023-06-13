@@ -8,6 +8,7 @@ export default function CreatePerson() {
 	return (
 		<PageLayout>
 			<div>
+				<h2>Create a new person in your tree</h2>
 				<FormBlank onFormSubmit={onFormSubmit}/>
 			</div>
 		</PageLayout>

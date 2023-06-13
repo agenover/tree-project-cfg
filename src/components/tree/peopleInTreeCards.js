@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export default function PeopleInTreeCards() {
@@ -54,6 +55,9 @@ export default function PeopleInTreeCards() {
 						{person.description}
 					</p>
 					<DeleteButton onClick={() => handleDelete(person)}>Delete</DeleteButton>
+					<Link to="/tree/edit-person">
+						<EditButton>Edit</EditButton>
+					</Link>
 				</PersonCard>
 			))}
 		</PersonCardContainer>
@@ -75,6 +79,14 @@ const PersonCard = styled.div`
 `;
 
 const DeleteButton = styled.button`
+	background: #d6d930;
+	border-radius: 5px;
+	border: 1px solid;
+	padding: 0.5rem;
+	justify-content: flex-end;
+`;
+
+const EditButton = styled.button`
 	background: #d6d930;
 	border-radius: 5px;
 	border: 1px solid;

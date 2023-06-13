@@ -7,11 +7,13 @@ import { RadioGroup, GenderGroupItem, StateGroupItem } from "./formRadioGroups";
 export default function FormBlank({onFormSubmit = () => {} }) {
 	return (
 			<div>
-				<h2>Create a new person in your tree</h2>
 				<Formik
 					initialValues={initialValues}
 					validationSchema={validationSchema}
-					onSubmit={onFormSubmit}
+					onSubmit={(person, { resetForm }) => {
+						onFormSubmit(person);
+						resetForm({ person: "" });
+					}}
 				>
 					{(formik) => (
 						<Form>
