@@ -5,7 +5,7 @@ import styled from "styled-components";
 export default function Home() {
 	return (
 		<PageLayout>
-			<Link to="/form">
+			<Link to="/create-person">
 				<Button>Create Person</Button>
 			</Link>
 			<Link to="/tree">

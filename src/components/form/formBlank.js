@@ -1,27 +1,17 @@
 import React from "react";
 import * as Yup from "yup";
-import PageLayout from "../layout/PageLayout";
 import { TextFieldGroup } from "./formTextFields";
 import { Formik, Form } from "formik";
 import { RadioGroup, GenderGroupItem, StateGroupItem } from "./formRadioGroups";
-import { v4 as uuidv4 } from "uuid";
 
-export default function FormBlank() {
-	const handleFormSubmit = (values) => {
-		addPerson(values);
-	};
-
+export default function FormBlank({onFormSubmit = () => {} }) {
 	return (
-		<PageLayout>
 			<div>
 				<h2>Create a new person in your tree</h2>
 				<Formik
 					initialValues={initialValues}
 					validationSchema={validationSchema}
-					onSubmit={(values, { resetForm }) => {
-						handleFormSubmit(values);
-						resetForm({ values: "" });
-					}}
+					onSubmit={onFormSubmit}
 				>
 					{(formik) => (
 						<Form>
@@ -87,7 +77,6 @@ export default function FormBlank() {
 					)}
 				</Formik>
 			</div>
-		</PageLayout>
 	);
 }
 
@@ -117,12 +106,3 @@ const validationSchema = Yup.object({
 	livingStatus: Yup.string().required("Living Status is required"),
 	gender: Yup.string().required("gender is required"),
 });
-
-const addPerson = (person) => {
-	const rawData = localStorage.getItem("site-data");
-	const currentData = rawData ? JSON.parse(rawData) : [];
-	const uniqueId = uuidv4();
-	person.uniqueId = uniqueId;
-	currentData.push(person);
-	localStorage.setItem("site-data", JSON.stringify(currentData));
-};
