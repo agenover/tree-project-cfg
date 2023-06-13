@@ -4,7 +4,7 @@ import { TextFieldGroup } from "./formTextFields";
 import { Formik, Form } from "formik";
 import { RadioGroup, GenderGroupItem, StateGroupItem } from "./formRadioGroups";
 
-export default function FormBlank({onFormSubmit = () => {} }) {
+export default function FormBlank({onFormSubmit = () => {}, initialValues=blankInitialValues }) {
 	return (
 			<div>
 				<Formik
@@ -82,7 +82,7 @@ export default function FormBlank({onFormSubmit = () => {} }) {
 	);
 }
 
-const initialValues = {
+const blankInitialValues = {
 	firstName: "",
 	lastName: "",
 	yearOfBirth: "",

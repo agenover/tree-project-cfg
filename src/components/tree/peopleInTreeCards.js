@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 export default function PeopleInTreeCards() {
@@ -21,6 +21,14 @@ export default function PeopleInTreeCards() {
 			return updatedPeople;
 		});
 	};
+
+	const navigate = useNavigate();
+
+	const navigateToEditPerson = (person) => {
+		const personId = person.uniqueId
+		navigate("/tree/edit-person/", { state: personId})
+		return personId
+	}
 
 	return (
 		<PersonCardContainer>
@@ -55,9 +63,7 @@ export default function PeopleInTreeCards() {
 						{person.description}
 					</p>
 					<DeleteButton onClick={() => handleDelete(person)}>Delete</DeleteButton>
-					<Link to="/tree/edit-person">
-						<EditButton>Edit</EditButton>
-					</Link>
+					<EditButton onClick={() => navigateToEditPerson(person)}>Edit</EditButton>
 				</PersonCard>
 			))}
 		</PersonCardContainer>
